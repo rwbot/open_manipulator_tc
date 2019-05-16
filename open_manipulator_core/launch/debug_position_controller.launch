@@ -1,0 +1,28 @@
+<launch>
+  <arg name="device_name"                default="/dev/ttyUSB0"/>
+  <arg name="baud_rate"                  default="3000000"/>
+  <arg name="latency_timer"              default="4"/>
+  <arg name="scan_range"                 default="10"/>
+
+  <arg name="profile_velocity"           default="75"/>
+  <arg name="profile_acceleration"       default="75"/>
+  
+  <arg name="p_gain"                     default="1"/>
+  <arg name="d_gain"                     default="1"/>
+
+  <param name="device_name"              value="$(arg device_name)"/>
+  <param name="baud_rate"                value="$(arg baud_rate)"/>
+  <param name="latency_timer"            value="$(arg latency_timer)"/>
+
+  <param name="scan_range"               value="$(arg scan_range)"/>
+  
+  <param name="p_gain"                   value="$(arg p_gain)"/>
+  <param name="d_gain"                   value="$(arg d_gain)"/>
+
+  <param name="profile_velocity"         value="$(arg profile_velocity)"/>
+  <param name="profile_acceleration"     value="$(arg profile_acceleration)"/>
+  <node name="debug_position_control" pkg="open_manipulator_core" type="debug_pos_controller" required="true" output="screen"/>
+
+</launch>
+
+

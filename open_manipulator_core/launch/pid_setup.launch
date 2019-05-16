@@ -1,0 +1,11 @@
+<launch>
+  <arg name="device_name"                default="/dev/ttyACM0"/>
+  <arg name="baud_rate"                  default="1000000"/>
+  <arg name="scan_range"                 default="10"/>
+
+  <param name="device_name"              value="$(arg device_name)"/>
+  <param name="baud_rate"                value="$(arg baud_rate)"/>
+  <param name="scan_range"               value="$(arg scan_range)"/>
+  
+  <node name="pid_setup" pkg="dynamixel_position_controller" type="pid_setup" required="true" output="screen"/>
+</launch>
