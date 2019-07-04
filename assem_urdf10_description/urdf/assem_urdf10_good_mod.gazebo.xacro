@@ -14,7 +14,7 @@
     <material>Gazebo/Red</material>
     <selfCollide>True</selfCollide>
   </gazebo>
-  
+
   <!-- Link1 -->
   <gazebo reference="link1">
     <kp>1000000.0</kp>
@@ -64,7 +64,7 @@
     <material>Gazebo/Red</material>
     <selfCollide>True</selfCollide>
   </gazebo>
-  
+
   <!-- Link6 -->
   <gazebo reference="link6">
     <kp>1000000.0</kp>
@@ -74,7 +74,7 @@
     <material>Gazebo/Red</material>
     <selfCollide>True</selfCollide>
   </gazebo>
-  
+
   <!-- Link7 -->
   <gazebo reference="link7">
     <kp>1000000.0</kp>
@@ -84,7 +84,7 @@
     <material>Gazebo/Red</material>
     <selfCollide>True</selfCollide>
   </gazebo>
-  
+
   <!-- Link8 -->
   <!--<gazebo reference="link8">
     <kp>1000000.0</kp>
@@ -118,7 +118,7 @@
   <!-- ros_control plugin -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/assem_urdf10_description</robotNamespace>
+      <robotNamespace></robotNamespace>
       <controlPeriod>0.001</controlPeriod>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>

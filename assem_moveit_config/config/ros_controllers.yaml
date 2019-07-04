@@ -1,4 +1,3 @@
-assem_urdf10_description:
 # MoveIt-specific simulation settings
   moveit_sim_hw_interface:
     joint_model_group: controllers_initial_group_
