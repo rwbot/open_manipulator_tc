@@ -9,9 +9,3 @@ controller_list:
       - id_4
       - id_5
       - id_6
-  - name: gripper_controller
-    action_ns: follow_joint_trajectory
-    type: FollowJointTrajectory
-    joints:
-      - grip_joint
-      - grip_joint_sub
