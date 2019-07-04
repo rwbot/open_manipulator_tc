@@ -1,0 +1,547 @@
+<?xml version="1.0"?>
+<!-- Open_Manipulator Chain -->
+<robot name="assem_urdf10_description" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find assem_urdf10_description)/urdf/assem_urdf10_good_mod.gazebo.xacro"/>
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find assem_urdf10_description)/urdf/materials.xacro" />
+  
+  <!-- World -->
+  <link name="world">
+  </link>
+
+  <!-- World fixed joint -->
+  <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  
+  <!-- Base Link -->
+  <link name="base_link">
+	<inertial>
+      <origin xyz="-0.0198091676921037 0.00475895888627786 0.0223348947769206" rpy="0 0 0" />
+      <mass value="0.152427750768752" />
+      <inertia
+        ixx="2.87194132562496E-05"
+        ixy="-1.00279818908323E-05"
+        ixz="-2.09508757427431E-08"
+        iyy="7.78197054288688E-06"
+        iyz="-6.99543710236704E-08"
+        izz="3.51911780883504E-05" />
+    </inertial>
+	<visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+        	<mesh filename="package://assem_urdf10_description/meshes/base_link.STL"/>
+		</geometry>
+		<material name="grey"/>
+	</visual>
+	<collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://assem_urdf10_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- World fixed joint -->
+  <!-- <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="link1"/>
+  </joint> -->
+
+  <!-- Link 1 -->
+  <link name="link1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link1.STL"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link1.STL"/>
+      </geometry>
+    </collision>
+
+	<inertial>
+      <origin
+        xyz="0.000278221314922764 0.0385027065938655 0.00027822088980917"
+        rpy="0 0 0" />
+      <mass
+        value="0.11236533985333" />
+      <inertia
+        ixx="0.00010158087504"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="9.13460097036e-05"
+        iyz="0.0"
+        izz="0.00010158087504" />
+    </inertial>
+  </link>
+
+  <!-- Joint 1 -->
+  <joint name="id_1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <!--<origin xyz="-0.0136208916068772 -0.0223589880134227 0.0216594248998582"
+      rpy="1.5707963267949 4.47651619176839E-17 0.819925085155917" /> -->
+    <origin xyz="-0.0136208916068772 -0.0223589880134227 0.0216594248998582"
+      rpy="1.5707963267949 4.47651619176839E-17 0.819925085155917" />
+    <axis xyz="0 1 0"/>
+    <limit velocity="1" effort="100" lower="${-pi*1.1}" upper="${pi*0.9}" />
+  </joint>
+
+
+
+  <!--  Link 2 -->
+  <link name="link2">
+    
+	<visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link2.STL"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link2.STL"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="7.91954423880192E-08 -0.000206940804577149 -0.11551164553495"
+        rpy="0 0 0" />
+      <mass value="1.0" />
+      <inertia ixx="0.00383252520833"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.00368200520833"
+        iyz="0.0"
+        izz="0.000321186666667" />
+    </inertial>
+  </link>
+
+  <!--  Joint 2 -->
+  <joint name="id_2" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="0 0.0635250000000307 0" rpy="-1.63071272414614 -0.783598867449766 -3.05680721740956" />
+    <axis xyz="0 -1 0"/>
+    <limit velocity="1" effort="100" lower="-2.0" upper="2.0" />
+  </joint>
+
+
+
+  <!--  Link 3 -->
+  <link name="link3">
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link3.STL"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link3.STL"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="-0.00664293841766437 1.58910654600442E-09 -0.13681867944283"
+        rpy="0 0 0" />
+      <mass value="0.0942669059876105" />
+      <inertia 
+        ixx="0.000361432593479"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.000368082809473"
+        iyz="0.0"
+        izz="3.66536439437e-05" />
+    </inertial>
+  </link>
+
+  <!--  Joint 3 -->
+  <joint name="id_3" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz="0 0 -0.1825"
+      rpy="9.29069784347397E-16 0.0554201788363836 -7.65146952831404E-15" />
+    <axis xyz="0 -1 0"/>
+    <limit velocity="1" effort="100" lower="-2.5" upper="2.5" />
+  </joint>
+
+
+  <!--  Link 4 -->
+  <link name="link4">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link4.STL"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link4.STL"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="-0.000469459815869877 0.0298275386935002 2.34661512443779E-09"
+        rpy="0 0 0" />
+      <mass value="0.0437656445694864" />
+      <inertia 
+        ixx="1.38949083126e-05"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="7.95531768477e-06"
+        iyz="0.0"
+        izz="1.59254518638e-05" />
+    </inertial>
+
+  </link>
+
+  <!--  Joint 4 -->
+  <joint name="id_4" type="revolute">
+    <parent link="link3"/>
+    <child link="link4"/>
+    <origin xyz="-0.000499999999997371 0 -0.197871283222506"
+      rpy="-1.57 0.0 0" />
+    <axis xyz="0 1 0"/>
+    <limit velocity="1.0" effort="100.0" lower="${-pi}" upper="${pi}" />
+  </joint>
+
+
+
+  <!--  Link 5 -->
+  <link name="link5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link5.STL"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link5.STL"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin yz="-0.0113709297401874 3.1790882773497E-09 -0.0418298886384917"
+        rpy="0 0 0" />
+      <mass value="0.046790034353077" />
+      <inertia
+        ixx="2.82248794809e-05"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="2.92096537373e-05"
+        iyz="0.0"
+        izz="1.58771843736e-05" />
+    </inertial>
+  </link>
+
+  <!--  Joint 5 -->
+  <joint name="id_5" type="revolute">
+    <parent link="link4"/>
+    <child link="link5"/>
+    <origin xyz="0 0.043629 0"
+      rpy="1.57 0 0" />
+    <axis xyz="0 1 0"/>
+    <limit velocity="1" effort="100" lower="${-pi*.5}" upper="${2.2}" />
+  </joint>
+
+
+  <link name="link6">
+    <inertial>
+      <origin
+        xyz="6.04487289442707E-08 0.0271430423844783 0.0102971530069109"
+        rpy="0 0 0" />
+      <mass
+        value="0.0609796041332711" />
+      <inertia
+        ixx="3.87743233699e-05"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="6.51791215741e-05"
+        iyz="0.0"
+        izz="7.52278753513e-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link6.STL" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="id_6" type="revolute">
+    <origin xyz="0 0 -0.061455"
+      rpy="-1.5708 3.9642E-15 1.5869" />
+    <parent link="link5" />
+    <child link="link6" />
+    <axis xyz="0 1 0" />
+	<limit velocity="1" effort="100" lower="${-pi}" upper="${pi}" />
+  </joint>
+
+
+
+<link name="link7">
+    <inertial>
+      <origin
+        xyz="8.04777473828455E-10 0.00431553027636999 -2.19556255485337E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.00209578541384519" />
+      <inertia
+        ixx="9.65036529181e-08"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="3.16097982311e-07"
+        iyz="0.0"
+        izz="2.43541611846e-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://assem_urdf10_description/meshes/link7.STL" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://assem_urdf10_description/meshes/link7.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint7" type="fixed">
+    <origin xyz="0 0.040666 0.00025" rpy="-1.8471E-13 1.5595 -1.844E-13" />
+    <parent link="link6" />
+    <child link="link7" />
+  </joint>
+
+
+
+  <link name="grip_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/grip_link.STL"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/grip_link.STL" />
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="-0.0131288466598847 0.0330730472446744 0.00290325109046016" rpy="0 0 0" />
+      <mass value="0.00686258582199906" />
+      <inertia 
+		ixx="3.71546115225e-07"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="4.27067436906e-06"
+        iyz="0.0"
+        izz="4.12330605735e-06" />
+    </inertial>
+  </link>
+
+  <joint name="grip_joint" type="prismatic">
+    <parent link="link7"/>
+    <child link="grip_link"/>
+    <origin xyz="-0.00017269 0.023188 -0.015347"
+      rpy="1.5595 2.2343E-15 -1.5708" />
+    <axis xyz="0 -1 0"/>
+    <limit velocity="0.01" effort="0.1" lower="-0.015" upper="0.0105" />
+  </joint>
+
+  <link name="grip_link_sub">
+    <visual>
+      <origin xyz="0 -0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/grip_link_sub.STL"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 -0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://assem_urdf10_description/meshes/grip_link_sub.STL"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="-0.0131288455395543 0.00692695270900137 0.00290325169007665"
+        rpy="0 0 0" />
+      <mass value="0.00686258582199906" />
+      <inertia
+		ixx="3.71546115225e-07"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="4.27067436906e-06"
+        iyz="0.0"
+        izz="4.12330605735e-06" />
+    </inertial>
+  </link>
+
+  <joint name="grip_joint_sub" type="prismatic">
+    <parent link="link7"/>
+    <child link="grip_link_sub"/>
+    <origin xyz="-0.00027737 0.023288 -0.02465"
+      rpy="1.5595 1.5292E-15 -1.5708" />
+    <axis xyz="0 1 0"/>
+    <limit velocity="0.01" effort="0.1" lower="-0.015" upper="0.0105" />
+  </joint>
+
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="id_1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="id_2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="id_3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="id_4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="id_5">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="id_6">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="tran7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="grip_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor7">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran8">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="grip_joint_sub">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor8">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!--<transmission name="tran9">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="grip_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor9">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>-->
+  
+</robot>

@@ -1,0 +1,17 @@
+controller_list:
+  - name: assem_urdf10_description/arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - id_1
+      - id_2
+      - id_3
+      - id_4
+      - id_5
+      - id_6
+  - name: assem_urdf10_description/gripper_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - grip_joint
+      - grip_joint_sub
