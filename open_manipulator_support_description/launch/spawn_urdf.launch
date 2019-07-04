@@ -6,7 +6,7 @@
         <arg name="y" default="0.0" />
         <arg name="z" default="0.0" />
         
-        <arg name="urdf_robot_file" default="$(find open_manipulator_support)/urdf/open_manipulator.urdf"/>
+        <arg name="urdf_robot_file" default="$(find open_manipulator_support_description)/urdf/open_manipulator.urdf"/>
         <arg name="robot_name" default="open_manipulator" />
 
         <!-- This version was created because of some errors seen in the V1 that crashed Gazebo or went too slow in spawn -->

@@ -3,13 +3,13 @@
 <robot name="open_manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-  <xacro:include filename="$(find open_manipulator_support)/urdf/open_manipulator.gazebo.xacro"/>
+  <xacro:include filename="$(find open_manipulator_support_description)/urdf/open_manipulator.gazebo.xacro"/>
 <!-- Import Rviz colors -->
-  <xacro:include filename="$(find open_manipulator_support)/urdf/materials.xacro" />
+  <xacro:include filename="$(find open_manipulator_support_description)/urdf/materials.xacro" />
 <!-- Import inertial Properties-->
-  <xacro:include filename="$(find open_manipulator_support)/urdf/inertial_properties.xacro" />
+  <xacro:include filename="$(find open_manipulator_support_description)/urdf/inertial_properties.xacro" />
 <!-- Import inertial Properties-->
-  <xacro:include filename="$(find open_manipulator_support)/urdf/mass_properties.xacro" />
+  <xacro:include filename="$(find open_manipulator_support_description)/urdf/mass_properties.xacro" />
    
  <!-- World -->
    <link name="world">
@@ -36,13 +36,13 @@
     </inertial>
 	<visual>
 		<geometry>
-        	<mesh filename="package://open_manipulator_support/meshes/base_link.STL"/>
+        	<mesh filename="package://open_manipulator_support_description/meshes/base_link.STL"/>
 		</geometry>
 		<material name="grey"/>
 	</visual>
 	<collision>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/base_link.STL" />
+        <mesh filename="package://open_manipulator_support_description/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -52,14 +52,14 @@
   <link name="link1">
     <visual>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link1.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link1.STL"/>
       </geometry>
       <material name="grey"/>
     </visual>
 
     <collision>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link1.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link1.STL"/>
       </geometry>
     </collision>
 
@@ -102,14 +102,14 @@
     
 	<visual>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link2.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link2.STL"/>
       </geometry>
       <material name="grey"/>
     </visual>
 
     <collision>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link2.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link2.STL"/>
       </geometry>
     </collision>
 
@@ -151,13 +151,13 @@
   <link name="link3">
     <visual>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link3.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link3.STL"/>
       </geometry>
       <material name="grey"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link3.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link3.STL"/>
       </geometry>
     </collision>
 
@@ -199,14 +199,14 @@
   <link name="link4">
     <visual>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link4.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link4.STL"/>
       </geometry>
       <material name="grey"/>
     </visual>
 
     <collision>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link4.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link4.STL"/>
       </geometry>
     </collision>
 
@@ -249,14 +249,14 @@
   <link name="link5">
     <visual>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link5.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link5.STL"/>
       </geometry>
       <material name="grey"/>
     </visual>
 
     <collision>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link5.STL"/>
+        <mesh filename="package://open_manipulator_support_description/meshes/link5.STL"/>
       </geometry>
     </collision>
 
@@ -310,13 +310,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link6.STL" />
+        <mesh filename="package://open_manipulator_support_description/meshes/link6.STL" />
       </geometry>
       <material name="grey" />
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/link6.STL" />
+        <mesh filename="package://open_manipulator_support_description/meshes/link6.STL" />
       </geometry>
     </collision>
   </link>
@@ -358,14 +358,14 @@
     <visual>
       <geometry>
         <mesh
-          filename="package://open_manipulator_support/meshes/link7.STL" />
+          filename="package://open_manipulator_support_description/meshes/link7.STL" />
       </geometry>
       <material name="grey" />
     </visual>
     <collision>
       <geometry>
         <mesh
-          filename="package://open_manipulator_support/meshes/link7.STL" />
+          filename="package://open_manipulator_support_description/meshes/link7.STL" />
       </geometry>
     </collision>
   </link>
@@ -411,7 +411,7 @@
     <visual>
       <geometry>
         <mesh
-          filename="package://open_manipulator_support/meshes/gripper.STL" />
+          filename="package://open_manipulator_support_description/meshes/gripper.STL" />
       </geometry>
       <material name="grey" />
     </visual>
@@ -419,7 +419,7 @@
    <collision>
       <geometry>
         <mesh
-          filename="package://open_manipulator_support/meshes/gripper.STL" />
+          filename="package://open_manipulator_support_description/meshes/gripper.STL" />
       </geometry>
     </collision> 
   </link>
@@ -450,14 +450,14 @@
     </inertial>
         <visual>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/gripper.STL" />
+        <mesh filename="package://open_manipulator_support_description/meshes/gripper.STL" />
       </geometry>
       <material name="grey" />
     </visual>
     
     <collision>
       <geometry>
-        <mesh filename="package://open_manipulator_support/meshes/gripper.STL" />
+        <mesh filename="package://open_manipulator_support_description/meshes/gripper.STL" />
       </geometry>
     </collision> 
   </link>

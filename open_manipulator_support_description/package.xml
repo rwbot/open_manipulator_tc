@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>open_manipulator_support</name>
+  <name>open_manipulator_support_description</name>
   <version>0.0.0</version>
-  <description>open_manipulator_support package</description>
+  <description>open_manipulator_support_description package</description>
 
   <maintainer email="jake@todo.todo">jake</maintainer>
 
