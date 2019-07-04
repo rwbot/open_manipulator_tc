@@ -24,7 +24,7 @@
     type: joint_state_controller/JointStateController
     publish_rate: 50
   controller_list:
-    - name: arm_controller
+    - name: arm
       action_ns: follow_joint_trajectory
       default: True
       type: FollowJointTrajectory
