@@ -133,7 +133,7 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "trajectory_action_server");
 
   ROS_INFO("Starting action server!");
-  DynamixelTrajectoryAction action("arm_controller/follow_joint_trajectory");
+  DynamixelTrajectoryAction action("arm/follow_joint_trajectory");
 
   ROS_INFO("Spinning...");
   ros::spin();
